@@ -11,6 +11,7 @@
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Team</th>
+				<th>Goals scored</th>
                 <th>Edit</th>
                 <th>Delete</th>
 			</tr>
@@ -28,6 +29,7 @@
                         Team doesn't exist
                         @endif
                     </td>
+                    <td>{{{ $player->goals_scored }}}</td>
                     <td>{{ link_to_route('players.edit', 'Edit', array($player->id), array('class' => 'btn btn-info')) }}</td>
                     <td>
                         {{ Form::open(array('method' => 'DELETE', 'route' => array('players.destroy', $player->id))) }}

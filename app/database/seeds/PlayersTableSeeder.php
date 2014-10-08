@@ -13,7 +13,8 @@ class PlayersTableSeeder extends Seeder {
 		{
 			Player::create([
 				'first_name' =>$faker->firstNameMale,
-				'last_name' =>$faker->lastName,		
+				'last_name' =>$faker->lastName,
+				'goals_scored' =>rand ( 0 , 34 ),		
 				'team_id' =>rand ( 1 , 20 ),
 			]);
 		}

@@ -44,8 +44,8 @@ ORDER BY score DESC , goal_diff DESC' );
 	foreach (array_values($games) as $i => $value) {
   		$value->rank = $i + 1;
 }
-
-	 return View::make('games.table', compact('games', 'teams'));
+	$topscorers = DB::table('players')->orderBy('goals_scored', 'desc')->take(10)->get();
+	return View::make('games.table', compact('games', 'teams', 'topscorers'));
 });
 Route::get('asdf', function()
 {	

@@ -17,6 +17,7 @@ class CreatePlayersTable extends Migration {
 			$table->string('first_name');
 			$table->string('last_name');
 			$table->integer('team_id')->unsigned()->nullable();
+			$table->integer('goals_scored');
 			$table->timestamps();
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('set null');
 		});

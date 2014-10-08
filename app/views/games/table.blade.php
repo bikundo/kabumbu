@@ -2,8 +2,13 @@
 
 @section('main')
 
-<h1>Current League Table</h1>
-
+<div class="row" style="padding-top:20px;">
+    <div class="col-md-7">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Current League Table</h3>
+  </div>
+  <div class="panel-body">
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
@@ -37,5 +42,49 @@
             @endforeach
         </tbody>
     </table>
+  </div>
+</div>
+    </div>
+    <div class="col-md-5">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">League Top Scorers</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Team</th>
+                <th>Goals scored</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach ($topscorers as $topscorer)
+                <tr>
+                    <td>{{{ $topscorer->first_name }}} {{{ $topscorer->last_name }}}</td>
+                
+                    <td>
+                        @if ($teams->contains($topscorer->team_id))
+                        {{{ $teams->find($topscorer->team_id)->name }}}
+                        @else
+                        Team doesn't exist
+                        @endif
+                    </td>
+                    <td>{{{ $topscorer->goals_scored }}}</td>                    
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+  </div>
+</div>
+    
+    </div>
+</div>
+
+
+
+    
 
 @stop
