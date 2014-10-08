@@ -5,6 +5,7 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav">
+                <li>{{ HTML::link('/', 'Home') }}</li>
                 @if (Auth::check())
                 <li>{{ HTML::link('teams', 'Teams') }}</li>
                 <li>{{ HTML::link('players', 'Players') }}</li>
