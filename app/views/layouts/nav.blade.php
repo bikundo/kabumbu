@@ -10,6 +10,8 @@
                 <li>{{ HTML::link('teams', 'Teams') }}</li>
                 <li>{{ HTML::link('players', 'Players') }}</li>
                 <li>{{ HTML::link('games', 'Games') }}</li>
+                <li>{{ HTML::link('/', 'League Table') }}</li>
+                <li>{{ HTML::link('games/create', 'New Fixture') }}</li>
                 @endif
             </ul>
 

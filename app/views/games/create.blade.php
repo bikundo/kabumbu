@@ -2,40 +2,54 @@
 
 @section('main')
 
-<h1>Create Game</h1>
-
-{{ Form::open(array('route' => 'games.store')) }}
-	<ul>
+<h1>New Fixture</h1>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        {{ Form::open(array('route' => 'games.store')) }}
+    <ul>
         <li>
-            {{ Form::label('host_team_id', 'Host_team_id:') }}
-            {{ Form::text('host_team_id') }}
+            {{ Form::label('host_team_id', 'Home team:') }}
+            <select name="host_team_id" class="form-control">
+            @foreach ($teams as $element)
+                 <option value="{{$element->id}}">{{$element->name}}</option>
+            @endforeach
+            </select>
         </li>
-
         <li>
-            {{ Form::label('guest_team_id', 'Guest_team_id:') }}
-            {{ Form::text('guest_team_id') }}
+            {{ Form::label('host_team_id', 'Away team:') }}
+            <select name="guest_team_id" class="form-control">
+            @foreach ($teams as $element)
+                 <option value="{{$element->id}}">{{$element->name}}</option>
+            @endforeach
+            </select>
         </li>
+        
 
         <li>
             {{ Form::label('host_score', 'Host_score:') }}
-            {{ Form::input('number', 'host_score') }}
+            {{ Form::text('host_score', '', array('class' => 'form-control', 'placeholder'=>'leave empty if game is not yet played')) }}
         </li>
 
         <li>
             {{ Form::label('guest_score', 'Guest_score:') }}
-            {{ Form::input('number', 'guest_score') }}
+            {{ Form::text('guest_score', '', array('class' => 'form-control', 'placeholder'=>'leave empty if game is not yet played')) }}
         </li>
 
         <li>
-            {{ Form::label('time', 'Time:') }}
-            {{ Form::text('time') }}
+            {{ Form::label('time', 'Date:') }}
+            {{ Form::text('time', '', array('class' => 'form-control', 'placeholder'=>'Date')) }}
         </li>
 
-		<li>
-			{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
-		</li>
-	</ul>
+        <li>
+            {{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
+        </li>
+    </ul>
 {{ Form::close() }}
+    </div>
+
+</div>
+
+
 
 @if ($errors->any())
 	<ul>

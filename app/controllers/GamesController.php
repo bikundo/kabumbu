@@ -42,8 +42,9 @@ class GamesController extends BaseController {
 	 * @return Response
 	 */
 	public function create()
-	{
-		return View::make('games.create');
+	{	
+		$teams = $this->team->all();
+		return View::make('games.create', compact('teams'));
 	}
 
 	/**
