@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'football_league',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => 'madchester',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
